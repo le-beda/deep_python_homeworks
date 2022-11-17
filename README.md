@@ -1,1 +1,1 @@
-# deep_python_homeworks
+Продвинутый Python, домашние задания Лебедюк Евы
