@@ -1,0 +1,27 @@
+<head>
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+</head>
+<title>Resume Maker Online</title>
+
+<div class=page>
+    <h1 class='my_class heading'>Resume Maker Online</h1>
+    <p>Create and download your resume NOW</p>
+
+    <div class=metanav>
+
+        {% if not session.logged_in %}
+        <a href="{{ url_for('login') }}">log in</a>
+        {% endif %}
+
+    </div>
+
+    {% for message in get_flashed_messages() %}
+    <div class=flash>{{ message }}</div>
+    {% endfor %}
+
+    {% block body %}{% endblock %}
+
+</div>
+
+{% block body2 %}{% endblock %}
+

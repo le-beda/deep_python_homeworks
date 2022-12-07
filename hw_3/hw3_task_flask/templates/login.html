@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h2>Login</h2>
+
+{% if error%}
+<p class=error><strong>Error:</strong> {{ error }}
+    {% if error == "Empty slots"%}
+<p>Please, fill in ALL login slots!</p>{% elif error == "User not found"%}
+<p>User with this username doesn't exist</p>
+<p>Try <a href={{url_for('register')}}>registering</a> first</p>{% elif error == "Wrong password"%}
+<p>Try entering your password more carefully...</p>
+{% endif %}
+</p>
+{% endif %}
+
+<form action="{{ url_for('login') }}" method=post>
+    <dl>
+        <dt>Username:
+        <dd><input type=text name=username>
+        <dt>Password:
+        <dd><input type=password name=password>
+        <dd><input type=submit value=Login>
+    </dl>
+</form>
+
+{% endblock %}

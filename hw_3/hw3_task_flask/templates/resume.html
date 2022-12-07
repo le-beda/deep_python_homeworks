@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h2>Resume Editor:</h2>
+
+{% if error %}
+<p class=error><strong>Error:</strong> {{ error }}
+    {% endif %}
+
+<form action="{{ url_for('resume') }}" method=post>
+    <dl>
+        <dt>Full name:
+        <dd><input type=text name=full_name value="{{resume.full_name}}">
+        <dt>Date of Birth:
+        <dd><input type="date" name=date_of_birth value="{{resume.date_of_birth}}">
+        <dt>Education:
+        <dd><input type=text name=education value="{{resume.education}}">
+        <dt>Skills:
+        <dd><input type=text name=skills value="{{resume.skills}}">
+        <dt>Personal information:
+        <dd><input type=text name=personal_info value="{{resume.personal_info}}">
+        <dd><input type=submit value=Save name=save_button>
+        <dd><input type=submit value=Download name = download_button>
+    </dl>
+</form>
+
+{% endblock %}
+
+{% block body2 %}
+<p> Looks good? You can get back to the <a href={{url_for('index')}}>main page</a></p>
+{% endblock %}
